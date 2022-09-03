@@ -1,0 +1,14 @@
+[FORMAT]
+indent-string=\t
+max-line-length=200
+
+[SIMILARITIES]
+min-similarity-lines=50
+good-names=do_GET, do_POST, do_DELETE, do_PUT, do_PATCH
+
+[MASTER]
+load-plugins=pylint_django
+disable=django-not-configured, wrong-import-position, logging-fstring-interpolation, missing-function-docstring, missing-module-docstring, missing-class-docstring, broad-except, trailing-whitespace
+
+[DESIGN]
+max-locals=20

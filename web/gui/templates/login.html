@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Log in</title>
+  <!--<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}" >-->
+  <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="container-fluid banner">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="fw-light">Shitcoin sniper</h1>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-center align-items-center" id="login-row">
+    <div class="col-md-6" id="login-column">
+      <div class="col-md-12" id="login-box">
+        <form action="{% url 'user_login' %}" class="form" id="login-form" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label class="text-info signup-form-label" for="username">Username:</label><br>
+            <input class="form-control" id="username" name="username" type="text">
+          </div>
+          <div class="form-group">
+            <label class="text-info signup-form-label" for="password">Password:</label><br>
+            <input class="form-control" id="password" name="password" type="password">
+          </div>
+          <div class="form-group sign-up">
+            <input class="btn btn-md signup-form-label login-btn" name="submit" type="submit" value="Log in">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

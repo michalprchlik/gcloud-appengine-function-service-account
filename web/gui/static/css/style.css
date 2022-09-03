@@ -1,0 +1,492 @@
+@charset utf-8;
+
+
+body, html {
+    background: #fff;
+    color: #3d3c3c;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input:not([type="submit"]){
+	width: 80px;
+	height: 24px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+a {
+  --s: 0.1em;   /* the thickness of the line */
+  --c: black; /* the color */
+  color: #444;
+  font-weight: 500;
+  padding-bottom: var(--s);
+  background: 
+    linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
+    linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
+  -webkit-background-clip: text,padding-box;
+          background-clip: text,padding-box;
+  transition: all 0.3s;
+}
+
+a:hover{
+  --_p: 100%;
+  color: black;
+  text-decoration: none;
+}
+
+a.active,
+tr th.desc,
+tr th.asc {
+  --_p: 100%;
+  --s: 0.1em;   /* the thickness of the line */
+  --c: black; /* the color */
+  color: black;
+  text-decoration: none;
+  background: 
+    linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
+    linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
+  -webkit-background-clip: text,padding-box;
+          background-clip: text,padding-box;
+}
+
+a.external{
+	text-decoration: underline;
+	
+}
+a.external:after {
+	content: " " url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=);    
+}
+
+.banner {
+    background-image: url('/static/images/logo-header.png');
+    background-position: center;
+    background-size: contain;
+	background-repeat: no-repeat;
+    height: 11px;
+    min-height: 70px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    padding-top: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: calc(4.95356vh + 2.5vw);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.125;
+    line-height: 58px;
+    margin: 0 0 30px;
+    margin-bottom: 4.1279669763vh;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 80%);
+    width: 100%;
+}
+
+.container-configuration{
+	margin-top: 20px;
+	
+}
+
+.footer {
+    margin-top: 50px;
+    padding-left: 45px !important;
+}
+
+
+.footer-section {
+    padding-bottom: 20px;
+}
+
+tr th,
+tr th.desc,
+tr th.orderable {
+    text-align:center;
+    background-color: #ccc;
+}
+
+.counter-value {
+  display: flex;
+	font-size: 150px;
+  font-weight: bold;
+    color: #fff;
+    font-size: calc(4.95356vh + 2.5vw);
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.125;
+    line-height: 58px;
+    margin: 0 0 10px;
+    margin-bottom: 2.1279669763vh;
+    text-shadow: 0 2px 4px rgb(0 0 0 / 80%);
+    width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#contract-price-dex-guru-close-line-graph{
+	margin-bottom: 20px;
+}
+
+
+
+
+
+/* bootstrap tables pagination  */
+.pagination > li > a
+{
+    background-color: white;
+    color: #5A4181;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: black;
+    background-color: #eee;
+    border-color: #dee2e6;
+}
+
+.pagination > .active > a
+{
+    color: black !Important;
+    background-color: #f2f2f2 !Important;
+    border: solid 1px #f2f2f2 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #eee !Important;
+    border: solid 1px #dee2e6;
+}
+
+.table-transaction tr{
+	font-size: 70%;
+}
+
+
+/* banners to inform an user about action 
+source - https://csshint.com/css-alert-box/
+example no 13
+*/
+
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg {
+  margin: 0;
+  padding: 5px;
+  border-radius: 3px 3px 3px 3px;
+  text-align: center;
+}
+.info-msg {
+  color: #059;
+  background-color: #BEF;
+}
+.success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
+.warning-msg {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+.error-msg {
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+
+
+
+
+
+/* From uiverse.io by @arieshiphop */
+input[type=submit],
+button {
+ font-size: 17px;
+ padding: 0.2em 1.2em;
+ border: transparent;
+ box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+ border-radius: 6px;
+ transition: 0.3s;
+ float: right;
+}
+
+input[type=submit]:active,
+button:active {
+ transform: translate(0em, 0.2em);
+}
+
+.button-green{
+ color: #270;
+ background: #DFF2BF;
+}
+.button-green:hover{
+ background: #bed19f;
+}
+
+.button-red{
+	color: #D8000C;
+ background: #FFBABA;
+}
+.button-red:hover{
+ background: #db9999;
+}
+
+
+
+
+
+/* LEFT menu*/
+
+/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #eee;
+    color: black;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #000;
+    background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #000;
+    background: #ccc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content-message {
+    width: 100%;
+    min-height: 0vh;
+    display: flex;
+}
+
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+
+
+/*
+WINNERS PODIUM
+*/
+
+
+
+#podium-box {
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 30px;
+  height: 160px
+}
+
+.podium-number {
+  font-family: DaggerSquare;
+  font-weight: bold;
+  font-size: 4em;
+  color: white;
+}
+
+.step-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-container>div:first-child {
+  margin-top: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.step {
+  text-align: center;
+}
+
+.bg-blue {
+  background-color: #eee;
+}
+
+#first-step {
+  height: 75%;
+  background: rgb(155, 255, 155);
+}
+
+#second-step {
+  height: 55%;
+  background: rgb(185, 255, 185);
+}
+
+#third-step {
+  height: 40%;
+  background: rgb(215, 255, 215);
+}

@@ -1,0 +1,14 @@
+.dockerignore
+.gcloudignore
+.git
+.gitignore
+.project
+.pydevproject
+.pylintrc
+__pycache__
+deploy.sh
+Makefile
+README.md
+tests
+tests.containerfile
+venv/*

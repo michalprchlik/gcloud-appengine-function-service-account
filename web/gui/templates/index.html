@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Home</title>
+{% endblock %}
+{% block content %}
+
+<button class="button-green" onclick="location.href='{% url 'create_event' }">Create an event to gcloud queue</button>
+
+{% endblock %}

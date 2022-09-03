@@ -1,0 +1,10 @@
+[FORMAT]
+indent-string=\t
+max-line-length=150
+
+[SIMILARITIES]
+min-similarity-lines=50
+good-names=do_GET, do_POST, do_DELETE, do_PUT, do_PATCH
+
+[MASTER]
+disable=logging-fstring-interpolation, missing-function-docstring, missing-module-docstring, missing-class-docstring, trailing-whitespace

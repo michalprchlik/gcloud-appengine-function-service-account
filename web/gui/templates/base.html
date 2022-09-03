@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  {% block title %}{% endblock %}
+  <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+  <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/fontawesome.min.css' %}" rel="stylesheet">
+  
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/js.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+{% if request.GET.message_ok %}
+<div class="success-msg"><i class="fa fa-check"></i>{{request.GET.message_ok}}</div>
+{%elif request.GET.message_error %}
+<div class="error-msg"><i class="fa fa-times-circle"></i>{{request.GET.message_error}}</div>
+{% endif %}
+<div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="{% url 'index' %}">index</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="{% url 'user_logout' %}">Logout</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+  {%  block content %}
+  {%  endblock %}
+  {% block script %}
+  {% endblock %}
+   </div>
+</body>
+</html>
