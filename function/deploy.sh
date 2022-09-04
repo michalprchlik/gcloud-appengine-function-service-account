@@ -1,13 +1,13 @@
 #!/bin/bash
 
-FUNCTION_NAME=buy-sell
+FUNCTION_NAME=function
 MEMORY=128MB
 
 make run-tests
 
 if [ $? -eq 0 ]; then 
 
-	source ../../config/config.sh
+	source ../config/config.sh
 
 	gcloud functions deploy ${FUNCTION_NAME} \
 	--memory ${MEMORY} \

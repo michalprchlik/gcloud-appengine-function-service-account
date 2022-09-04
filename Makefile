@@ -32,6 +32,7 @@ create-app:
 create-queue:
 	gcloud tasks queues create queue --quiet --location=$(REGION)
 
+
 # You do not need to delete whole database instance in order to wipe out database's schema
 create-database:
 	gcloud sql instances create $(DATABASE_INSTANCE_NAME) \
@@ -43,7 +44,7 @@ create-database:
 
 # https://cloud.google.com/iam/docs/creating-managing-service-accounts#iam-service-accounts-create-gcloud
 # https://cloud.google.com/tasks/docs/creating-http-target-tasks#token
-create-serivice-account:
+create-service-account:
 	gcloud iam service-accounts create service-account \
 	    --description="description" \
 	    --display-name="service-account"
@@ -85,6 +86,4 @@ install-proxy:
 
 
 run-proxy:
-	export GOOGLE_CLOUD_PROJECT=$(PROJECT_NAME)
-	export USE_CLOUD_SQL_AUTH_PROXY=true
 	./cloud_sql_proxy -instances=$(PROJECT_NAME):$(REGION):$(DATABASE_INSTANCE_NAME)=tcp:5432

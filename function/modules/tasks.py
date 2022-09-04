@@ -12,7 +12,7 @@ def create_task_for_api(message):
 	project = getenv("PROJECT")
 	location = getenv("LOCATION")
 	url_app_engine = getenv("URL_APP_ENGINE")
-	queue_name = 'api'
+	queue_name = 'queue'
 	url = f"https://{project}.{url_app_engine}/api/"
 	in_seconds = None
 
