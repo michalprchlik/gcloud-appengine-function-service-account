@@ -21,7 +21,6 @@ runtime: python39
 env_variables:
   SERVICE_ACCOUNT_EMAIL: service-account@rododendron-361414.iam.gserviceaccount.com
   # This setting is used in settings.py to configure your ALLOWED_HOSTS
-  # APPENGINE_URL: yamp-352609.lm.r.appspot.com
 
 handlers:
 # This configures Google App Engine to serve the files in the app's static

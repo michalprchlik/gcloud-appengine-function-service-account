@@ -1,37 +1,49 @@
 import logging
 import traceback
+import json
 
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+import requests
 
 from api.run import validate_api_data, run_api
-
+from google.auth import crypt
+from google.auth import jwt
+from api.authorize import get_is_authorized
 
 class ListView(APIView):
 
 	def post(self, request):
 
 		data = request.data.copy()
+		headers = request.META
+
 		logging.info(data)
 
-		try:
-			message = validate_api_data(data)
-			if message == 'OK':
+		is_authorized = get_is_authorized(headers)
 
-				run_api(data)
+		if is_authorized:
+			try:
+				message = validate_api_data(data)
+				if message == 'OK':
 
-				response = Response({'message': message}, status=status.HTTP_200_OK)
+					run_api(data)
 
-			else:
-				logging.error(message)
-				response = Response({'message': message}, status=status.HTTP_400_BAD_REQUEST)
+					response = Response({'message': message}, status=status.HTTP_200_OK)
 
-		except Exception as exception: #pylint: disable=broad-except
-			logging.exception('Got an exception')
-			response = Response({'exception': str(exception)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+				else:
+					logging.error(message)
+					response = Response({'message': message}, status=status.HTTP_400_BAD_REQUEST)
 
-			if 'unittest.util' in __import__('sys').modules:
-				print(str(traceback.format_exc()))
+			except Exception as exception: #pylint: disable=broad-except
+				logging.exception('Got an exception')
+				response = Response({'exception': str(exception)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+				if 'unittest.util' in __import__('sys').modules:
+					print(str(traceback.format_exc()))
+		else:
+			message = "Unauthorized"
+			response = Response({'message': message}, status=status.HTTP_401_UNAUTHORIZED)
 
 		return response

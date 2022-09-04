@@ -12,14 +12,9 @@ urlpatterns = [
 		name='index'
 	),
 	re_path(
-		f'^$',
-		general_view.user_login,
-		name='user_login'
-	),
-	re_path(
-		'user/logout/?$',
-		general_view.user_logout,
-		name='user_logout'
+		r'action/',
+		include('gui.action.urls'),
+		name='gui_action_view'
 	),
 	re_path(r'^favicon\.ico$',RedirectView.as_view(url='/static/images/favicon.ico')),
 ]

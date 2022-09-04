@@ -114,7 +114,7 @@ MIDDLEWARE = [
 	"django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "yamp.urls"
+ROOT_URLCONF = "example.urls"
 
 TEMPLATES = [
 	{
@@ -132,7 +132,7 @@ TEMPLATES = [
 	},
 ]
 
-WSGI_APPLICATION = "yamp.wsgi.application"
+WSGI_APPLICATION = "example.wsgi.application"
 
 # Database
 # [START db_setup]

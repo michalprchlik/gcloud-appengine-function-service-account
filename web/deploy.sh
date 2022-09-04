@@ -1,5 +1,10 @@
 #!/bin/bash
 
+source ../config/config.sh
+
+export GOOGLE_CLOUD_PROJECT=${PROJECT}
+export USE_CLOUD_SQL_AUTH_PROXY=true
+
 python3.9 manage.py makemigrations
 python3.9 manage.py test
 
